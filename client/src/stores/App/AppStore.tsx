@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import avatar from '../../assets/images/avatar.jpg';
+// import avatar from '../../assets/images/avatar.jpg';
 
 import MenuStore from './MenuStore';
 
@@ -9,10 +9,10 @@ const myState = {
     },
     menu: MenuStore.staticMenu(),
     user: {
-        name: 'Adisak Boonmark',
-        pwd: 'pwd',
-        email: 'adisak0661013@gmail.com',
-        avatar: avatar,
+        name: 'user name',
+        email: 'email',
+        group: 'group',
+        avatar: 'avatar', // NOTE: used avatar.jpg for test.
     },
 };
 
@@ -22,6 +22,14 @@ const myStore = createSlice({
     reducers: {
         setPage: (state: any, action: any) => {
             state.page.name = action.payload;
+        },
+        setUser: (state: any, action: any) => {
+            const user = JSON.parse(action.payload);
+
+            state.user.name = user.name;
+            state.user.email = user.email;
+            state.user.group = user.group;
+            state.user.avatar = user.avatar;
         },
     },
 });

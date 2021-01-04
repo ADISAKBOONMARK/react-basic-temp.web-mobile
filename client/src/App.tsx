@@ -14,7 +14,7 @@ import NotFoundLayout from './layout/NotFoundLayout';
 
 import ScanQRcode from './views/ScanQRcode';
 
-const App = () => {
+const AppRouter = () => {
     return (
         <Provider store={store}>
             <ThemeProvider theme={customTheme}>
@@ -32,4 +32,4 @@ const App = () => {
     );
 };
 
-export default App;
+export default AppRouter;

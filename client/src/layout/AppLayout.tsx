@@ -17,6 +17,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 
 import { AppAction } from '../stores/App/AppStore';
 
+// import LoginLayout from './LoginLayout';
 import MenuLayout from './MenuLayout';
 
 const AppLayout = (props: any) => {
@@ -98,7 +99,7 @@ const AppLayout = (props: any) => {
                         color="textSecondary"
                         className={classes.title}
                     >
-                        Sample Scan QRcode
+                        Basic Template
                     </Typography>
 
                     <IconButton color="secondary" onClick={handleUserMenu} edge="end">
@@ -113,7 +114,7 @@ const AppLayout = (props: any) => {
                     >
                         <MenuItem>
                             <Avatar src={props.user.avatar}></Avatar>&nbsp;&nbsp;
-                            {props.user.email}
+                            {props.user.name || props.user.email}
                         </MenuItem>
                     </Menu>
                 </Toolbar>
@@ -156,7 +157,7 @@ const AppLayout = (props: any) => {
                     />
                 </Drawer>
             )}
-
+            
             <main style={{ width: '-webkit-fill-available', flexGrow: 1 }}>
                 <Toolbar />
                 <div className={classes.content}>{props.children}</div>
