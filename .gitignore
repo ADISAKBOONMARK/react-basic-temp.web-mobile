@@ -1,0 +1,14 @@
+.idea
+client/build
+client/node_modules
+client/.env
+client/package-lock.json
+
+server/.env
+server/bin
+server/logs
+server/certs
+server/node_modules
+server/package-lock.json
+server/src/node_modules
+server/src/package-lock.json
