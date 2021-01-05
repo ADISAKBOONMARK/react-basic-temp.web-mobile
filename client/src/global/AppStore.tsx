@@ -1,9 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
+import jwt from 'jsonwebtoken';
 // import avatar from '../../assets/images/avatar.jpg';
 
 import MenuStore from './MenuStore';
 
-import LoginService from './LoginService';
+// import LoginService from './LoginService';
 
 const myState = {
     page: {
@@ -16,37 +17,42 @@ const myState = {
         group: 'group',
         avatar: 'avatar', // NOTE: used avatar.jpg for test.
     },
-    accessToken: 'expired',
+    accessTokenStatus: 'expired',
 };
 
 const myStore = createSlice({
     name: 'AppStore',
     initialState: myState,
     reducers: {
-        checkAccessToken: (state: any, action: any) => {
-            const accessToken = localStorage.getItem('accessToken');
-            if (accessToken) {
-                state.accessToken = 'active';
-            } else {
-                state.accessToken = 'expired';
-            }
-        },
         login: (state: any, action: any) => {
-            // const user = JSON.parse(action.payload);
+            console.log(state);
+            //NOTE: use for test.
+            localStorage.setItem(
+                'accessToken',
+                'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJPbmxpbmUgSldUIEJ1aWxkZXIiLCJpYXQiOjE2MDk4NDg4NTUsImV4cCI6MTU0MTM4NDg1NSwiYXVkIjoid3d3LmV4YW1wbGUuY29tIiwic3ViIjoianJvY2tldEBleGFtcGxlLmNvbSIsIkdpdmVuTmFtZSI6IkpvaG5ueSIsIlN1cm5hbWUiOiJSb2NrZXQiLCJFbWFpbCI6Impyb2NrZXRAZXhhbXBsZS5jb20iLCJSb2xlIjpbIk1hbmFnZXIiLCJQcm9qZWN0IEFkbWluaXN0cmF0b3IiXX0.M6Se8bNWtx-B1Xx2tw9hYCbNjNaNaUQ1FNVVjDHWlrk',
+            );
 
-            // let resultData;
+            const accessToken = localStorage.getItem('accessToken');
 
-            // switch (user.loginBy) {
-            //     case 'normal':
-            //         resultData = LoginService.normal(user);
-            //         break;
-            //     default:
-            //         resultData = LoginService.normal(user);
-            //         break;
-            // }
+            if (accessToken) {
+                const accessTokenData: any = jwt.decode(accessToken);
 
-            console.log(action.payload);
-            // state.page.name = action.payload;
+                console.log('access-token exp time', accessTokenData.exp * 1000);
+                console.log('local time', Date.now());
+
+                if (Date.now() >= accessTokenData.exp * 1000) {
+                    console.log('access-token is expired');
+                    console.log('do login . . .');
+                    console.log('successfuly');
+                    state.accessTokenStatus = 'active';
+                    //TODO: handle login failed
+                } else {
+                    state.accessTokenStatus = 'active';
+                }
+                console.log('is access-token', accessTokenData);
+            } else {
+                state.accessTokenStatus = 'expired';
+            }
         },
         setUser: (state: any, action: any) => {
             const user = JSON.parse(action.payload);

@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { isMobile } from 'react-device-detect';
 import { connect } from 'react-redux';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
@@ -171,9 +171,16 @@ const AppLayout = (props: any) => {
         </div>
     );
 
-    props.checkAccessToken();
+    useEffect(() => {
+        props.login();
+        // eslint-disable-next-line
+    }, []);
 
-    return props.accessToken === 'expired' ? renderLogin() : renderApp();
+    const render = () => {
+        return props.accessTokenStatus === 'expired' ? renderLogin() : renderApp();
+    };
+
+    return render();
 };
 
 const mapStateToProps = (state: any, ownProps: any) => {
