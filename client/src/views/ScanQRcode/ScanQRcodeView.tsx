@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
+
 import { ScanQRcodeAction } from '../../stores/ScanQRcode/ScanQRcodeStore';
 
 import QrReader from 'react-qr-reader';

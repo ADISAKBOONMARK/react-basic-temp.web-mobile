@@ -1,6 +1,6 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 
-import { AppReducer } from './App/AppStore';
+import { AppReducer } from '../global/AppStore';
 
 import { ScanQRcodeReducer } from './ScanQRcode/ScanQRcodeStore';
 

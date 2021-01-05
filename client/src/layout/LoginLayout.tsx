@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Typography from '@material-ui/core/Typography';
 
-import { AppAction } from '../stores/App/AppStore';
+import { AppAction } from '../global/AppStore';
 
 const LoginLayout = () => {
     return (

@@ -15,7 +15,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import MenuIcon from '@material-ui/icons/Menu';
 
-import { AppAction } from '../stores/App/AppStore';
+import { AppAction } from '../global/AppStore';
 
 // import LoginLayout from './LoginLayout';
 import MenuLayout from './MenuLayout';
@@ -157,7 +157,7 @@ const AppLayout = (props: any) => {
                     />
                 </Drawer>
             )}
-            
+
             <main style={{ width: '-webkit-fill-available', flexGrow: 1 }}>
                 <Toolbar />
                 <div className={classes.content}>{props.children}</div>

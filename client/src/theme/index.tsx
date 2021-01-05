@@ -118,8 +118,8 @@ const theme = createMuiTheme({
         },
         text: {
             primary: config.color.textPrimary,
-            secondary:'#fff'
-        }
+            secondary: '#fff',
+        },
     },
     overrides: {
         MuiButton: {

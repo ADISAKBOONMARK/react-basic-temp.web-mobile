@@ -12,7 +12,7 @@ import store from './stores';
 import AppLayout from './layout/AppLayout';
 import NotFoundLayout from './layout/NotFoundLayout';
 
-import ScanQRcode from './views/ScanQRcode';
+import ScanQRcodeView from './views/ScanQRcode/ScanQRcodeView';
 
 const AppRouter = () => {
     return (
@@ -22,8 +22,8 @@ const AppRouter = () => {
                 {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
                 <AppLayout>
                     <Switch>
-                        <Route exact path="/scan-qrcode" component={ScanQRcode} />
-                        <Route exact path="/" component={ScanQRcode} />
+                        <Route exact path="/scan-qrcode" component={ScanQRcodeView} />
+                        <Route exact path="/" component={ScanQRcodeView} />
                         <Route path="*" component={NotFoundLayout} />
                     </Switch>
                 </AppLayout>

@@ -13,7 +13,7 @@ import TreeItem from '@material-ui/lab/TreeItem';
 import TreeView from '@material-ui/lab/TreeView';
 
 import Icons from '../components/Icons';
-import { AppAction } from '../stores/App/AppStore';
+import { AppAction } from '../global/AppStore';
 
 interface IMenuItem {
     id: string;

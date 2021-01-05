@@ -58,7 +58,7 @@ const CardCustom = (props: IProps) => {
                         aria-controls="panel1a-content"
                         id="panel1a-header"
                     >
-                        <Typography className={classes.heading}> 
+                        <Typography className={classes.heading}>
                             {data.project}
                             {/* <b>
                                 {'- ' +
@@ -135,19 +135,19 @@ const CardCustom = (props: IProps) => {
                 </div>
             </Grid>
             {/* <Card> */}
-                {/* <CardContent> */}
-                    {/* <Grid> */}
-                    {/* <div className={classes.tltle}> */}
-                    {/* <br /> */}
-                    {/* <Typography>
+            {/* <CardContent> */}
+            {/* <Grid> */}
+            {/* <div className={classes.tltle}> */}
+            {/* <br /> */}
+            {/* <Typography>
                         <b>Activities</b>
                     </Typography>
                     <br /> */}
-                    {/* <Divider /> */}
-                    {/* </div> */}
-                    {/* </Grid> */}
-                    {props.activities.map((data: IActivitie, index: any) => renderItem(data))}
-                {/* </CardContent> */}
+            {/* <Divider /> */}
+            {/* </div> */}
+            {/* </Grid> */}
+            {props.activities.map((data: IActivitie, index: any) => renderItem(data))}
+            {/* </CardContent> */}
             {/* </Card> */}
         </div>
     );
