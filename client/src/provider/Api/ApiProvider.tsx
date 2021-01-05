@@ -1,7 +1,7 @@
-import axios, { AxiosPromise } from 'axios';
+import axios from 'axios';
 import APP_CONFIG from '../../AppConfig';
-import store from '../../stores';
-import { AppAction, AppReducer } from '../../global/AppStore';
+// import store from '../../stores';
+// import { AppAction, AppReducer } from '../../global/AppStore';
 
 const baseUrl = APP_CONFIG.SERVER_SIDE;
 

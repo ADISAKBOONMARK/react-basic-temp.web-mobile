@@ -17,7 +17,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 
 import { AppAction } from '../global/AppStore';
 
-// import LoginLayout from './LoginLayout';
+import LoginLayout from './LoginLayout';
 import MenuLayout from './MenuLayout';
 
 const AppLayout = (props: any) => {
@@ -84,7 +84,7 @@ const AppLayout = (props: any) => {
         setAnchorElUserMenu(null);
     };
 
-    return (
+    const renderApp = () => (
         <div className={classes.root}>
             <AppBar position="fixed" className={classes.appBar} variant={'outlined'}>
                 <Toolbar variant={'dense'}>
@@ -164,6 +164,16 @@ const AppLayout = (props: any) => {
             </main>
         </div>
     );
+
+    const renderLogin = () => (
+        <div className={classes.root}>
+            <LoginLayout></LoginLayout>
+        </div>
+    );
+
+    props.checkAccessToken();
+
+    return props.accessToken === 'expired' ? renderLogin() : renderApp();
 };
 
 const mapStateToProps = (state: any, ownProps: any) => {

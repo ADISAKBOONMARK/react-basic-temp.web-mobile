@@ -1,11 +1,15 @@
-// import business from './business';
-// import common from './common';
-// import membership from './membership';
-// import myBusiness from './myBusiness';
-// import smartContract from './smartContract';
-// import template from './template';
-// import user from './user';
+import ApiProvider from '../provider/Api/ApiProvider';
 
-const services = {};
+interface ILogin {
+    user: string;
+    password: string;
+    group: string;
+}
 
-export default services;
+const normal = (params: ILogin): any => {
+    return ApiProvider.post('/login/normal', params);
+};
+
+export default {
+    normal,
+};
