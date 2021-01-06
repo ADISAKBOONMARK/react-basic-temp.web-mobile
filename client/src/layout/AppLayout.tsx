@@ -172,7 +172,7 @@ const AppLayout = (props: any) => {
     );
 
     useEffect(() => {
-        props.login();
+        props.checkAccessToken();
         // eslint-disable-next-line
     }, []);
 
